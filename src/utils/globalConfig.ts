@@ -1,13 +1,14 @@
+import { getDownloadDir } from "../utils/deviceUtils.ts";
 import { LazyStore } from "@tauri-apps/plugin-store";
 
 
 const store = new LazyStore('config.json')
-
+const downloadPath = await getDownloadDir()
 const DEFAULT_CONFIG = {
     showDebugButton: true,
     showNavigationButtons: true,
     showLocationBar: true,
-
+    downloadPath: downloadPath,
     readClipboard: true,
     requestCacheTime: 300,
 
